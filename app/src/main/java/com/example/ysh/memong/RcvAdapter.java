@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import io.realm.Realm;
@@ -33,11 +35,11 @@ public class RcvAdapter extends RecyclerView.Adapter<RcvAdapter.ViewHolder> {
 
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
-
+        TextView tvDate;
         public ViewHolder(View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.mContextTextView);
-
+            tvDate = itemView.findViewById(R.id.mContextTextViewTime);
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {

@@ -4,21 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EAEEFA"
     tools:context=".AddActivity">
 
-
-    <EditText
-        android:id="@+id/title_text"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="제목"/>
-
     <Button
-        android:id="@+id/addFinish"
-        android:text="메모작성"
-        android:layout_width="150dp"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
-        android:layout_height="50dp" />
+        android:id="@+id/btnback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:layout_below="@+id/btnback"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/writeteduri"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ban"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/headteduri"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="33dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/headteduri"
+                app:srcCompat="@drawable/write" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="    일기작성"
+                android:textSize="24sp" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/headteduri"
+                app:srcCompat="@drawable/camera" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="550dp"
+            android:background="@drawable/writeteduri"
+            android:hint="내용" />
+
+        <Button
+            android:id="@+id/addFinish"
+            android:layout_width="169dp"
+            android:layout_height="63dp"
+            android:layout_gravity="center"
+            android:background="@drawable/teduri"
+            android:text="저장" />
+
+
+    </LinearLayout>
 </RelativeLayout>
