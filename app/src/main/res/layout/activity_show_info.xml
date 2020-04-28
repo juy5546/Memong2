@@ -13,6 +13,16 @@
         android:layout_height="wrap_content"
         android:text="back" />
 
+    <Button
+        android:id="@+id/btndelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="221dp"
+        android:layout_marginLeft="221dp"
+        android:layout_toEndOf="@+id/btnback"
+        android:layout_toRightOf="@+id/btnback"
+        android:text="Delete" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="700dp"
@@ -67,7 +77,7 @@
             android:layout_height="63dp"
             android:layout_gravity="center"
             android:background="@drawable/teduri"
-            android:text="저장" />
+            android:text="수정" />
 
 
     </LinearLayout>

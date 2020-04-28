@@ -1,10 +1,12 @@
 package com.example.ysh.memong;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,14 +19,15 @@ import android.widget.Toast;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Calendar;
+import java.util.Date;
 
 public class DateActivity extends AppCompatActivity {
+    public static Context thisContext;
 
     DatePicker datePicker;  //  datePicker - 날짜를 선택하는 달력
     TextView viewDatePick;  //  viewDatePick - 선택한 날짜를 보여주는 textView
     EditText edtDiary;   //  edtDiary - 선택한 날짜의 일기를 쓰거나 기존에 저장된 일기가 있다면 보여주고 수정하는 영역
     Button btnSave;   //  btnSave - 선택한 날짜의 일기 저장 및 수정(덮어쓰기) 버튼
-
     String fileName;   //  fileName - 돌고 도는 선택된 날짜의 파일 이름
 
 
@@ -33,11 +36,17 @@ public class DateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date);
 
+
+
         // 뷰에 있는 위젯들 리턴 받아두기
         datePicker = (DatePicker) findViewById(R.id.datePicker);
         viewDatePick = (TextView) findViewById(R.id.viewDatePick);
         edtDiary = (EditText) findViewById(R.id.edtDiary);
         btnSave = (Button) findViewById(R.id.btnSave);
+
+
+
+
 
         // 오늘 날짜를 받게해주는 Calender 친구들
         Calendar c = Calendar.getInstance();
@@ -55,6 +64,10 @@ public class DateActivity extends AppCompatActivity {
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 // 이미 선택한 날짜에 일기가 있는지 없는지 체크해야할 시간이다
                 checkedDay(year, monthOfYear, dayOfMonth);
+                Intent intent = new Intent(getApplicationContext(),AddActivity.class);
+                startActivity(intent);
+
+
             }
         });
 
@@ -66,7 +79,11 @@ public class DateActivity extends AppCompatActivity {
                 saveDiary(fileName);
             }
         });
-    }
+
+
+
+
+            }
 
     // 일기 파일 읽기
     private void checkedDay(int year, int monthOfYear, int dayOfMonth) {
